@@ -1,0 +1,41 @@
+print(" ")
+estoque = int(input("Qual o estoque? : "))
+meta = int(input("Qual a meta? : "))
+while meta > estoque:
+       print("Sua meta não pode ser maior que seu estoque.")
+       meta = int(input("Qual a meta? : "))
+lucro_por_roupa = int(input("Por quanto você vendeu cada peça? : "))
+roupas_vendidas = int(input("Quantas roupas você vendeu? : "))
+while roupas_vendidas > estoque:
+    print("Você não pode vender o que não tem!")
+    roupas_vendidas = int(input("Quantas roupas você vendeu? : "))   
+comprou_unit_por = int(input("Quanto custou cada unidade? : "))
+while comprou_unit_por > lucro_por_roupa:
+       print("Você não pode vender por um valor abaixo de seus gastod")
+       dec = str(input("Quer alterar os gastos ou o lucro? (g/l) : "))
+       if dec == "g":
+        	  comprou_unit_por = int(input("Quanto custou cada unidade? : "))
+       else:
+           lucro_por_roupa = int(input("Por quanto você vendeu cada peça? : "))  	
+print(" ")
+print(" ")
+print(" ")
+print(" ")
+print(" ")
+print(" ")
+print(" ")
+meta1 = meta <= roupas_vendidas
+if meta1 == True:
+   print("Parabéns, você chegou em sua meta!")
+else:
+   print("Você ainda não chegou em sua meta")
+roupas2 = estoque - roupas_vendidas
+if roupas2 <= 0:
+    print("Parabéns, você vendeu todas as peças")
+else:
+    print(f"Você ainda tem: {roupas2} roupas no estoque")
+lucro_total = roupas_vendidas * lucro_por_roupa - estoque * comprou_unit_por 
+if lucro_total > 0:
+   print(f"Seu lucro total foi de R${lucro_total}")
+else:
+   print(f"Você tem um prejuízo de R${abs (lucro_total)}")
