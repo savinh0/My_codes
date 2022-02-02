@@ -1,0 +1,30 @@
+for i in range(3):
+    print()
+kwh = float(input("Quantos kWh você consumiu este mês? : "))
+pago = float(input("Quanto você pagou este mês? : "))
+tot = kwh/pago
+print()
+print(f"Cada kWh custa R${'{:.2f}'.format(tot)}")
+print()
+cont = str(input("Você quer calcular quanto um eletrodoméstico gasta por mês? (S/N) : "))
+if cont == "n":
+    print("Encerrando processo.")
+else:
+    elet = str(input("Qual é o eletrodoméstico? : "))
+    suah = float(input("Quantas horas por dia ele fica ligado? : "))
+    print()
+    info = int(input("Você tem a potência(1), o consumo em kWh/mês(2) ou os volts e amperes(3)? (1/2/3) : "))
+    print()
+    if info == 2:
+        kwhm = float(input("Quantos kWh ele consome por mês? : "))
+        print()
+        print(f"{elet} custa R${'{:.2f}'.format(kwhm * suah * tot)} por mês e representa {'{:.2f}'.format(kwhm * suah * tot * 100 / pago)}% do valor total.")
+    elif info == 1:
+        watts = float(input("Qual a potência dele em W? : "))
+        print()
+        print(f"{elet} custa R${'{:.2f}'.format(((watts/1000) * suah * 30) * tot)} por mês e representa {'{:.2f}'.format(((watts/1000) * suah * 30) * tot * 100 / pago)}% do valor total.")
+    else:
+        volts = float(input("Qual a voltagem do aparelho? : "))
+        amp = float(input("Qual a amperagem do aparelho? : "))
+        print()
+        print(f"{elet} gasta R${'{:.2f}'.format((((volts * amp) / 1000) * suah * 30) * tot)} por mês e representa {'{:.2f}'.format((((volts * amp) / 1000) * suah * 30) * tot * 100 / pago)}% do valor total.")
